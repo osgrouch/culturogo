@@ -11,12 +11,18 @@ def search_db(terms):
         data = json.load(db)
         if data is None or '{}':
             findVenuesBy()
-        for line in data:
-            got_line = line.strip()
-            match = re.search
-                
+        for term in terms:
+            to_find = r""+term
+            for line in data:
+                got_line = line.strip()
+                match = re.search(to_find, got_line, flags=re.IGNORECASE)
+                if match is True:
+                    venues.append(got_line)
+                    break
+            
     return venues
     
+# eventually, break down search into filtered queries
 def byEvent(term):
     None
     
