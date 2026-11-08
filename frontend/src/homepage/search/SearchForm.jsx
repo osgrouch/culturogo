@@ -5,7 +5,7 @@ import EventTypeFilter from "./filters/EventTypeFilter";
 
 export default function SearchForm() {
   return (
-    <div class="search-form-container">
+    <div className="search-form-container">
       <CultureFilter />
       <LocationFilter />
       <EventTypeFilter />
