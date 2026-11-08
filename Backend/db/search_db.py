@@ -26,11 +26,11 @@ def searchDB(terms):
     return venues
     
 # eventually, break down search into filtered queries
-def byEvent(term):
-    None
+#def byEvent(term):
+    #None
     
-def byLocation(term):
-    None
+#def byLocation(term):
+#    None
     
-def byNationality(term):
-    None
+#def byNationality(term):
+#    None
