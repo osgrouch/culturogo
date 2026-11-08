@@ -21,7 +21,6 @@ client = genai.Client(api_key=private_key)
 current_time = datetime.datetime.now().isoformat()
 
 class formatInfo(BaseModel):
-    ID: int
     name: str
     address: str
     culture: str
@@ -43,23 +42,32 @@ def verifyKey():
 def findVenuesBy(terms):
     if verifyKey() is True:
         
-        prompt = f"Search the web for: {''.join(terms)} from {current_time}. Optional fields to add are event end date and time, descriptions, the type of event, and website links. Return results as structed json data. Do not exceed over 5 results."
-    
-        response = client.models.generate_content(
-            model = "gemini-3-flashpreview",
-            contents = prompt,
-            config = types.GenerateContentConfig(
-                tools = [types.Tool(google_search = types.GoogleSearch())],
-                response_mime_type= "application/json",
-                response_json_schema= Result.model_json_schema()
-            )
-        )
+        prompt = f"Search the web for: {' '.join(terms)} from {current_time}. Optional fields to add are event end date and time, descriptions, the type of event, and website links. Return results as structed json data. Do not exceed over 5 results."
         try:
-            new_venues = json.loads(response.json())["venues"]
+            response = client.models.generate_content(
+                model = "gemini-3.1-flash-lite",
+                contents = prompt,
+                config = types.GenerateContentConfig(
+                    tools = [types.Tool(google_search = types.GoogleSearch())],
+                    response_mime_type= "application/json",
+                    response_json_schema= Result.model_json_schema()
+                )
+            
+            )
+            raw_text = response.text
+            if not raw_text:
+                return
+            
+        except Exception as e:
+            print("Gemini request failed, reason: ", e)
+            return
+        
+        try:
+            new_venues = json.loads(raw_text)["venues"]
         except(json.JSONDecodeError, KeyError, TypeError):
             print("Web query returned unexpected results")
             return
-        #updateDB(response)
+        
         updateDB(new_venues)
     else:
         print("Invalid API key")

@@ -13,7 +13,7 @@ def searchDB(terms):
     reg_pattern = [re.compile(re.escape(term.strip()), re.IGNORECASE)
                            for term in terms if term.strip()]
     
-    for i in range(1):
+    for i in range(2):
         if(i != 1):
             
             try:
@@ -30,11 +30,10 @@ def searchDB(terms):
                 text = json.dumps(venue, ensure_ascii=False)
                 if all(p.search(text) for p in reg_pattern) and venue not in venues:
                             venues.append(venue)
-            if venues is not []:
+            if venues or i == 1:
                 return venues
-            elif i == 0:
-                findVenuesBy(terms)
-    return venues
+            #findVenuesBy(terms)
+    return []
     
     
     
