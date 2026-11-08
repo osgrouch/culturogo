@@ -1,0 +1,20 @@
+[
+  {
+    "ID": 0,
+    "title": "Deepavali",
+    "culture": "Hindu",
+    "date": "11-08-2026"
+  },
+  {
+    "ID": 1,
+    "title": "Diwali",
+    "culture": "Hindu",
+    "date": "11-08-2026"
+  },
+  {
+    "ID": 2,
+    "title": "Cambodia Independence Day",
+    "culture": "Cambodian",
+    "date": "11-09-2026"
+  }
+]
