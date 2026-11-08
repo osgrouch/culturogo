@@ -2,6 +2,7 @@ import datetime
 import json 
 import os
 from typing import List
+from dotenv import load_dotenv
 
 from google import genai
 from google.genai import types
@@ -9,7 +10,11 @@ from pydantic import BaseModel
 
 #from enviorment import python-dotenv
 db_file = "./data/venues.json"
+load_dotenv()
 private_key = os.getenv("GEMINI_API_KEY")
+if private_key is None or "":
+    print("Could not get key")
+
 
 client = genai.Client()
 current_time = datetime.datetime.now().isoformat()
@@ -29,6 +34,7 @@ class Result(BaseModel):
 
 def verifyKey():
     if private_key is None:
+        print("Could not get key")
         return False
     return True
 
