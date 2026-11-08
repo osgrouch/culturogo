@@ -1,0 +1,8 @@
+# This was written by Anthropic's Claude Code (model: Sonnet 5.5, claude-sonnet-5-5)
+tabWidth: 2
+useTabs: false
+semi: true
+singleQuote: false
+trailingComma: all
+printWidth: 80
+endOfLine: lf
