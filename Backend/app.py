@@ -12,6 +12,8 @@ Code from the Flask Workshop was copied and reused to create code that shows a w
 from flask import Flask
 from flask_restful import Api, Resource
 
+from db.search_db import searchDB
+
 app = Flask(__name__)
 api = Api(app)
 
@@ -39,7 +41,8 @@ class EventType(Resource):
 class Location(Resource):
     def get(self):
         try:
-            return "Rochester, NY, etc."
+            # return "Rochester, NY, etc."
+            return searchDB("Seoul")
         except ValueError as err:
             return {"error": str(err)}, 400
 

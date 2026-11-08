@@ -60,5 +60,6 @@
   },
   "python.analysis.extraPaths": [
     "./Backend/web-scrape"
-  ]
+  ],
+  "python-envs.defaultEnvManager": "ms-python.python:system"
 }
