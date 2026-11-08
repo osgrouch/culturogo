@@ -1,10 +1,10 @@
-import Search from "./homepage/Search";
+import Homepage from "./homepage/Homepage";
 
 function App() {
   return (
     <main>
       <h1>CulturoGO!</h1>
-      <Search highlight={fakeData.highlight} />
+      <Homepage highlight={fakeData.highlight} />
     </main>
   );
 }
