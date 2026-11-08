@@ -18,11 +18,36 @@ api = Api(app)
 class Home(Resource):
     def get(self):
         try:
-            return "Hello, World!"
+            return "CulturoGO!"
+        except ValueError as err:
+            return {"error": str(err)}, 400
+
+class Culture(Resource):
+    def get(self):
+        try:
+            return "Jewish, Muslim, Indian, Korean, etc."
+        except ValueError as err:
+            return {"error": str(err)}, 400
+
+class EventType(Resource):
+    def get(self):
+        try:
+            return "Event types"
+        except ValueError as err:
+            return {"error": str(err)}, 400
+
+class Location(Resource):
+    def get(self):
+        try:
+            return "Rochester, NY, etc."
         except ValueError as err:
             return {"error": str(err)}, 400
 
 api.add_resource(Home, "/")
+api.add_resource(Culture, "/api/culture")
+api.add_resource(EventType, "/api/eventtype")
+api.add_resource(Location, "/api/location")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
