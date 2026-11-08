@@ -3,14 +3,14 @@
         {
             "ID": 0,
             "name": "Seoul Drop",
-            "location":"Rochester, NY",
+            "address":"1900 S Clinton Ave Ste 410, Rochester, NY 14618",
             "culture":"Korean",
             
             "event": "Food",
             "photo": null,
             "event_start": null,
             "event_end": null,
-            "description": null,
+            "description": "Casual Korean-inspired eatery serving fresh kimbap and bulgogi alongside creative desserts.",
             "web_link": "https://seouldrop.com/"
         }
     ]

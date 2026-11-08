@@ -23,7 +23,7 @@ current_time = datetime.datetime.now().isoformat()
 class formatInfo(BaseModel):
     ID: int
     name: str
-    location: str
+    address: str
     culture: str
     
     scheduled: str
@@ -42,7 +42,7 @@ def verifyKey():
 def findVenuesBy(terms):
     if verifyKey() is True:
         
-        prompt = f"Search the web for: {''.join(terms)} from {current_time}. Return the results as structed json data"
+        prompt = f"Search the web for: {''.join(terms)} from {current_time}. Optional fields to add are event end date and time, descriptions, the type of event, and website links. Return results as structed json data. Do not exceed over 5 results."
     
         response = client.models.generate_content(
             model = "gemini-3-flashpreview",
