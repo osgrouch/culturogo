@@ -1,0 +1,15 @@
+/* This was written by Anthropic's Claude Code (model: Sonnet 5.5, claude-sonnet-5-5) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+main {
+  padding: 1rem;
+}
