@@ -1,6 +1,6 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
-import cultures from '../../../data/cultures.json';
+import cultures from '../../data/cultures.json';
 
 export default function CultureFilter({  }) {
   return <div>
