@@ -4,6 +4,7 @@ import Highlight from "./Highlight";
 import CultureFilter from "./filters/CultureFilter";
 import LocationFilter from "./filters/LocationFilter";
 import EventTypeFilter from "./filters/EventTypeFilter";
+import Venue from "./Venue";
 
 function getTodaysHighlight() {
   // TODO: GET HTTPS request to highlight endpoint
@@ -49,12 +50,10 @@ export default function Homepage() {
         </div>
       </div>
       {hasResultsToShow && (
-        <div className="search-results-container flex-fill overflow-auto p-4">
+        <div className="search-results-container d-flex flex-col overflow-auto p-4">
           {/* TODO: rework this data to be shown with a bootstrap card */}
           {searchResults.map((venue) => (
-            <p key={venue.id}>
-              {venue.title} @ {venue.address}
-            </p>
+            <Venue key={venue.id} info={venue} />
           ))}
         </div>
       )}
