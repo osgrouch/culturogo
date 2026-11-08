@@ -1,9 +1,6 @@
 import React from 'react';
 
-export default function Search({highlight}) {
-  // today highlight
-  // will be populated when created
-
+export default function Search({ highlight }) {
   // 3 dropdown components
   // will be prepopulated with today highlight culture and location
 
