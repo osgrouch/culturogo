@@ -23,14 +23,33 @@ export default function Homepage() {
   const [searchResults, setSearchResults] = useState([]);
   const hasResultsToShow = searchResults.length > 0;
 
-  const handleSearchResults = (event) => {
-    // TODO: POST HTTPS request to send filters to backend and begin search
+  // Call the /api/form endpoint with user query
+  const handleSearchResults = async (event) => {
     event.preventDefault(); // don't reload the page
-    // dummy value that toggle displays the result
-    const result = searchResults.length > 0 ? [] : venues;
-    setSearchResults(result);
+    try {
+      const response = await fetch("/api/form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          culture: selectedCulture == "Culture" ? "" : selectedCulture, // replace with your filter state
+          location: selectedLocation == "Location" ? "" : selectedLocation,
+          event: selectedEventType == "Event Type" ? "" : selectedEventType,
+        }),
+      });
+      if (!response.ok) {
+        setSearchResults([]);
+        return;
+      }
+      const data = await response.json();
+      setSearchResults(data.results);
+    } catch (error) {
+      console.error("Search failed:", error);
+    }
   };
 
+  const [selectedCulture, setSelectedCulture] = useState("Culture");
+  const [selectedLocation, setSelectedLocation] = useState("Location");
+  const [selectedEventType, setSelectedEventType] = useState("Event Type");
   return (
     <div className="homepage-container vh-100 d-flex flex-column">
       <div
@@ -41,11 +60,19 @@ export default function Homepage() {
       >
         <Logo />
         <Highlight info={highlight} />
-        {/* TODO: needs to render with smaller/compact view if search results are being displayed */}
         <div className="search-form-container d-flex flex-md-row flex-column justify-content-center align-items-center m-2">
-          <CultureFilter />
-          <LocationFilter />
-          <EventTypeFilter />
+          <CultureFilter
+            selectedCulture={selectedCulture}
+            setSelectedCulture={setSelectedCulture}
+          />
+          <LocationFilter
+            selectedLocation={selectedLocation}
+            setSelectedLocation={setSelectedLocation}
+          />
+          <EventTypeFilter
+            selectedEventType={selectedEventType}
+            setSelectedEventType={setSelectedEventType}
+          />
           <button onClick={handleSearchResults}>GO!</button>
         </div>
       </div>

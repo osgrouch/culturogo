@@ -11,7 +11,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         // TODO: change this to be an environment variable
-        target: "http://localhost:8000",
+        target: "http://localhost:5000",
         changeOrigin: true,
       },
     },

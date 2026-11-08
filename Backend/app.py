@@ -29,11 +29,23 @@ def matches(venue, body):
 
     Returns True if the venue matches the filters in body, else False
     """
-    for field, wanted in body.items():
-        if wanted in (None, ""):
+    for field, value in body.items():
+        if value in (None, ""):
             continue
-        actual = venue.get(field)
-        if actual is None or str(wanted).lower() not in str(actual).lower():
+
+        if field == "location":
+            actual = venue.get("address")
+            # check if the address of the venue contains the location given from the frontend
+            # as a substring of it
+            if str(value).lower() not in str(actual).lower():
+                return False
+        else:
+            actual = venue.get(field)
+
+        if str(value).lower() not in str(actual).lower():
+            return False
+
+        if actual is None or str(value).lower() not in str(actual).lower():
             return False
     return True
 
