@@ -1,5 +1,12 @@
 import React from 'react';
 
 export default function Logo({  }) {
-  return <h2>This is the CulturoGO! Logo</h2>;
+  return <div className = "d-flex flex-column align-items-center">
+    <img 
+        src="../../CulturoGO!_skyline.png" 
+        alt="CulturoGO!_skyline"
+        width="300"
+      />
+      <h1 className = "">CulturoGO!</h1>
+  </div>;
 }
