@@ -43,9 +43,8 @@ def handleForm():
     """
     Query the database for cultural events of the given culture and location.
     """
-    
     body = request.get_json(silent=True) or {}
-    if body:
+    if not body:
         return {"message": "No venues found!"}, 204
 
     with open("data/venues.json", "r") as venues_file:
@@ -60,7 +59,7 @@ def handleForm():
 
     if not results:
         return {"message": "No venues found!"}, 404 
-    return {"results": results}, 200
+    return {"results": results}
 
 
 if __name__ == "__main__":
