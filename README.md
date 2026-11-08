@@ -1,4 +1,0 @@
-# Hack COMS
-
-yo hello
-
