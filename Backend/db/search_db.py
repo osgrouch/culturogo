@@ -1,7 +1,8 @@
 import json
 import re
 
-from gather_venues import findVenuesBy
+#from gather_venues import findVenuesBy
+from scrape.gather_venues import findVenuesBy
 
 db_file = "./data/venues.json"
 
