@@ -1,0 +1,7 @@
+[
+    { "id": "food", "name": "Food"},
+    { "id": "social", "name": "Social"},
+    { "id": "art", "name": "Art"},
+    { "id": "tour", "name": "Tour"},
+    { "id": "dance", "name": "Dance"}
+]
