@@ -9,12 +9,13 @@ api = Api(app)
 
 @app.route('/', methods=['GET'])
 def index():
+    terms = [t.strip() for t in request.args.getlist('term') if t.strip()]
     results =[]
-    query = request.form.get('query', '').strip()
+    #query = request.form.get('query', '').strip()
     
-    if query is not None or '':
+    if terms is not None or '':
         try:
-            results = searchDB(query)
+            results = searchDB(terms)
         except Exception as e:
             print(e)
             return {"error": "Could not perform query."}, 500
@@ -22,6 +23,6 @@ def index():
     if results is []:
         return {"message": "No venues found!"}, 204
     
-    return render_template('index.html', results=results, query=query), 200
+    return render_template('index.html', results=results, terms=terms), 200
 if __name__ == "__main__":
     app.run(debug=True)
