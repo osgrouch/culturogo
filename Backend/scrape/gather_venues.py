@@ -26,7 +26,8 @@ class formatInfo(BaseModel):
     address: str
     culture: str
     
-    scheduled: str
+    event_start: str
+    event_end: str
     description: str
     web_link: str
     
@@ -53,12 +54,41 @@ def findVenuesBy(terms):
                 response_json_schema= Result.model_json_schema()
             )
         )
-        updateDB(response)
+        try:
+            new_venues = json.loads(response.json())["venues"]
+        except(json.JSONDecodeError, KeyError, TypeError):
+            print("Web query returned unexpected results")
+            return
+        #updateDB(response)
+        updateDB(new_venues)
     else:
         print("Invalid API key")
         
     
 def updateDB(venue_info):
-    data = json.dumps(venue_info, indent = 4)
+    try:
+        with open(db_file, "r") as db:
+            exists = json.load(db)
+        if not isinstance(exists, list):
+            exists = []
+    except (FileNotFoundError, json.JSONDecodeError):
+        exists = []
+        
+    in_venues = {(v.get("name", "").lower(), v.get("address", "").lower())for v in exists}
+    next_id = 0
+    
+    for v in venue_info:
+        key = (v.get("name", "").lower(), v.get("address","").lower())
+        if key in in_venues:
+            continue
+        
+        v["ID"] =  next_id
+        next_id += 1
+        exists.append(v)
+        in_venues.add(key)
+    
+    #data = json.dumps(venue_info, indent = 4)
+
     with open(db_file, "w") as db:
-        db.write(data)
+        #db.write(data)
+        json.dump(exists, db, indent=4)
