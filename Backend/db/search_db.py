@@ -5,12 +5,15 @@ from gather_venues import findVenuesBy
 
 db_file = "./data/venues.json"
 
-def searcDB(terms):
+def searchDB(terms):
     venues = []
+
     with open(db_file, 'r') as db:
         data = json.load(db)
-        if data is None or '{}':
-            findVenuesBy()
+        if data is None:
+            findVenuesBy(terms)
+            data = json.load(db)
+        
         for term in terms:
             to_find = r""+term
             for line in data:

@@ -1,0 +1,17 @@
+{
+    "venues": [
+        {
+            "ID": 0,
+            "name": "Seoul Drop",
+            "location":"Rochester, NY",
+            "culture":"Korean",
+            
+            "event": "Food",
+            "photo": null,
+            "event_start": null,
+            "event_end": null,
+            "description": null,
+            "web_link": "https://seouldrop.com/"
+        }
+    ]
+}
