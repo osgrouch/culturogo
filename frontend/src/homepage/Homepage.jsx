@@ -31,12 +31,17 @@ export default function Homepage() {
   };
 
   return (
-    <div className="homepage-container">
-      <div className="logo-highlight-form-container">
+    <div className="homepage-container vh-100 d-flex flex-column">
+      <div
+        className={
+          "logo-highlight-form-container p-4 d-flex flex-column align-items-center justify-content-center " +
+          (hasResultsToShow ? "compact" : "full")
+        }
+      >
         <Logo />
         <Highlight info={highlight} />
         {/* TODO: needs to render with smaller/compact view if search results are being displayed */}
-        <div className="search-form-container">
+        <div className="search-form-container d-flex flex-md-row flex-column justify-content-center align-items-center m-2">
           <CultureFilter />
           <LocationFilter />
           <EventTypeFilter />
@@ -44,7 +49,7 @@ export default function Homepage() {
         </div>
       </div>
       {hasResultsToShow && (
-        <div className="search-results-container">
+        <div className="search-results-container flex-fill overflow-auto p-4">
           {/* TODO: rework this data to be shown with a bootstrap card */}
           {searchResults.map((venue) => (
             <p key={venue.id}>
