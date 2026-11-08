@@ -5,7 +5,7 @@ from gather_venues import findVenuesBy
 
 db_file = "./data/venues.json"
 
-def search_db(terms):
+def searcDB(terms):
     venues = []
     with open(db_file, 'r') as db:
         data = json.load(db)
