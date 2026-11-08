@@ -7,16 +7,17 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 from pydantic import BaseModel
+from pathlib import Path
 
-#from enviorment import python-dotenv
+load_dotenv(Path(__file__).resolve().parents[2] / "local"/  ".env")
+
 db_file = "./data/venues.json"
-load_dotenv()
 private_key = os.getenv("GEMINI_API_KEY")
 if private_key is None or "":
     print("Could not get key")
 
 
-client = genai.Client()
+client = genai.Client(api_key=private_key)
 current_time = datetime.datetime.now().isoformat()
 
 class formatInfo(BaseModel):
