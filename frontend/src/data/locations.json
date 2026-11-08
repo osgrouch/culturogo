@@ -1,0 +1,22 @@
+[
+  { "id": "new-york", "name": "New York", "state": "NY" },
+  { "id": "los-angeles", "name": "Los Angeles", "state": "CA" },
+  { "id": "chicago", "name": "Chicago", "state": "IL" },
+  { "id": "houston", "name": "Houston", "state": "TX" },
+  { "id": "phoenix", "name": "Phoenix", "state": "AZ" },
+  { "id": "philadelphia", "name": "Philadelphia", "state": "PA" },
+  { "id": "san-antonio", "name": "San Antonio", "state": "TX" },
+  { "id": "san-diego", "name": "San Diego", "state": "CA" },
+  { "id": "dallas", "name": "Dallas", "state": "TX" },
+  { "id": "san-jose", "name": "San Jose", "state": "CA" },
+  { "id": "austin", "name": "Austin", "state": "TX" },
+  { "id": "seattle", "name": "Seattle", "state": "WA" },
+  { "id": "denver", "name": "Denver", "state": "CO" },
+  { "id": "boston", "name": "Boston", "state": "MA" },
+  { "id": "atlanta", "name": "Atlanta", "state": "GA" },
+  { "id": "miami", "name": "Miami", "state": "FL" },
+  { "id": "minneapolis", "name": "Minneapolis", "state": "MN" },
+  { "id": "portland", "name": "Portland", "state": "OR" },
+  { "id": "san-francisco", "name": "San Francisco", "state": "CA" },
+  { "id": "washington-dc", "name": "Washington", "state": "DC" }
+]

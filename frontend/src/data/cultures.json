@@ -1,0 +1,22 @@
+[
+  { "id": "african-american-black", "name": "African-American / Black", "flag": "✊🏿" },
+  { "id": "puerto-rican", "name": "Puerto Rican", "flag": "🇵🇷" },
+  { "id": "italian", "name": "Italian", "flag": "🇮🇹" },
+  { "id": "chinese", "name": "Chinese", "flag": "🇨🇳" },
+  { "id": "canadian", "name": "Canadian", "flag": "🇨🇦" },
+  { "id": "indian", "name": "Indian", "flag": "🇮🇳" },
+  { "id": "jamaican", "name": "Jamaican", "flag": "🇯🇲" },
+  { "id": "british", "name": "British", "flag": "🇬🇧" },
+  { "id": "mexican", "name": "Mexican", "flag": "🇲🇽" },
+  { "id": "ukrainian", "name": "Ukrainian", "flag": "🇺🇦" },
+  { "id": "dominican", "name": "Dominican", "flag": "🇩🇴" },
+  { "id": "cuban", "name": "Cuban", "flag": "🇨🇺" },
+  { "id": "german", "name": "German", "flag": "🇩🇪" },
+  { "id": "irish", "name": "Irish", "flag": "🇮🇪" },
+  { "id": "vietnamese", "name": "Vietnamese", "flag": "🇻🇳" },
+  { "id": "polish", "name": "Polish", "flag": "🇵🇱" },
+  { "id": "somali", "name": "Somali", "flag": "🇸🇴" },
+  { "id": "nepali", "name": "Nepali", "flag": "🇳🇵" },
+  { "id": "bhutanese", "name": "Bhutanese", "flag": "🇧🇹" },
+  { "id": "turkish", "name": "Turkish", "flag": "🇹🇷" }
+]
